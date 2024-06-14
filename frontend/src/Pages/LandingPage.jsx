@@ -1,49 +1,131 @@
 import { Header } from "../Components/Header";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeadset } from '@fortawesome/free-solid-svg-icons'
+import SupportHover from '../Components/srcLand/SupportHover'
+import CardHover from '../Components/srcLand/CardHover';
+
 export const LandingPage = () =>{
     return (
-        <div>
-            <div className="bg-gray-900 text-white py-16 px-8">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti dolores soluta voluptate maxime natus doloribus cum iusto, dicta omnis velit! Tempore tenetur labore et omnis? Earum itaque harum explicabo soluta?</p>
-            </div>
-            <div className="bg-gray-900 text-white py-16 px-8">
-                <div className="max-w-7xl mx-auto">         
-                    <h1 className="text-5xl font-bold mb-4 text-center">Support center</h1>
-                    <p className="text-lg mb-8 text-center">
-                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. 
-                    Elit sunt amet fugiat veniam occaecat fugiat aliqua.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="bg-gray-800 p-6 rounded-lg">
-                        <div className="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M2.003 5.884L3.177 9.45a1 1 0 01-.134.89l-1.67 2.509a1 1 0 00-.183.866l1.397 5.863a1 1 0 001.34.725l6.003-2.25a1 1 0 01.764 0l6.003 2.25a1 1 0 001.34-.725l1.397-5.863a1 1 0 00-.183-.866l-1.67-2.509a1 1 0 01-.134-.89l1.174-3.567a1 1 0 00-.887-1.217L13.79 4.92a1 1 0 01-.775-.372l-2.7-3.046a1 1 0 00-1.56 0l-2.7 3.046a1 1 0 01-.775.372l-3.77.688a1 1 0 00-.887 1.217z" />
+        <div className=" bg-gray-900 text-white">
+            <header className="bg-gray-900">
+                <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+                    <div className="flex h-16 items-center justify-between">
+                    <div className="md:flex md:items-center md:gap-12">
+                        <a className="block text-teal-600" href="#">
+                        <span className="sr-only">Home</span>
+                        <svg className="h-10" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <image href="/src/assets/EcoHive.png" x="0" y="0" height="24" width="28"/>
                         </svg>
-                        <h3 className="text-xl font-bold ml-2">Sales</h3>
-                        </div>
-                        <p>Consequatur vel non. Rerum ut consequatur nobis unde. Enim est quo corrupti consequatur.</p>
+                        </a>
                     </div>
-                    <div className="bg-gray-800/[.50] p-6 rounded-lg shadow-none hover:shadow-lg transition-all duration-300 delay-150">
-                        <div className="flex items-center mb-4">
-                            <FontAwesomeIcon icon={faHeadset} className="text-blue-500 text-2xl mr-2" />
-                            <h3 className="text-xl font-bold ml-2">Technical Support</h3>
-                        </div>
-                        <p>Quod possimus sit modi rerum exercitationem quaerat atque tenetur ullam.</p>
+
+                    <div className="hidden md:block">
+                        <nav aria-label="Global">
+                        <ul className="flex items-center gap-6  text-1xl">
+                            <li>
+                            <a className="text-gray-400 transition hover:text-gray-900" href="#"> About Us </a>
+                            </li>
+
+                            <li>
+                            <a className="text-gray-400 transition hover:text-gray-900" href="#"> Features </a>
+                            </li>
+
+                            <li>
+                            <a className="text-gray-400 transition hover:text-gray-900" href="#"> FAQ </a>
+                            </li>
+
+                            <li>
+                            <a className="text-gray-400 transition hover:text-gray-900" href="#"> Support </a>
+                            </li>
+                        </ul>
+                        </nav>
                     </div>
-                    <div className="bg-gray-800 p-6 rounded-lg">
-                        <div className="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 1a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1h12zM4 9h4v2H4V9zm0 4h4v2H4v-2zm0-6h4v2H4V7zm6 0h4v6h-4V7zm0 8h4v2h-4v-2z" />
-                        </svg>
-                        <h3 className="text-xl font-bold ml-2">Media Inquiries</h3>
+                    <div className="flex items-center gap-4">
+                        <div className="sm:flex sm:gap-4">
+                        <a
+                            className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-gray-900 shadow"
+                            href="#"
+                        >
+                            Login
+                        </a>
+
+                        <div className="hidden sm:flex">
+                            <a
+                            className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                            href="#"
+                            >
+                            Register
+                            </a>
                         </div>
-                        <p>Ratione et porro eligendi est sed ratione rerum itaque. Placeat accusantium impedit eum odit.</p>
+                        </div>
+
+                        <div className="block md:hidden">
+                        <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                        </div>
                     </div>
                     </div>
                 </div>
+            </header>
+            <div className="flex flex-row justify-between items-center ">
+                <div className=" align-top items-start">
+                <h1 className="font-bold text-8xl ml-28">ECOHIVE</h1>
+                </div>
+                <div className="mockup-phone place-items-end mr-28 mt-12 h-96  w-52" >
+                    <div className="camera"></div>
+                    <div className="display">
+                    <div className="artboard artboard-demo phone-1">Hi.</div>
+                    </div>
+                </div>
+            z</div>
+            <div className="LandingPage bg-gray-900 text-gray-900">
+            <CardHover/>
+            </div>
+            <div className="bg-gray-900 text-gray-900 py-12 mx-auto max-w-5xl px-8">
+                <h1 className="text-center text-5xl font-bold mb-10">FAQ</h1>
+                <div className="collapse collapse-arrow bg-base-200 mb-3">
+                    <input type="radio" id="accordion-1" name="accordion" defaultChecked />
+                    <div className="collapse-title text-xl font-medium">
+                    Click to open this one and close others
+                    </div>
+                    <div className="collapse-content">
+                    <p>Content for accordion 1</p>
+                    </div>
+                </div>
+
+                <div className="collapse collapse-arrow bg-base-200 mb-3">
+                    <input type="radio" id="accordion-2" name="accordion" />
+                    <div className="collapse-title text-xl font-medium">
+                    Click to open this one and close others
+                    </div>
+                    <div className="collapse-content">
+                    <p>Content for accordion 2</p>
+                    </div>
+                </div>
+
+                <div className="collapse collapse-arrow bg-base-200 pb-0">
+                    <input type="radio" id="accordion-3" name="accordion" />
+                    <div className="collapse-title text-xl font-medium">
+                    Click to open this one and close others
+                    </div>
+                    <div className="collapse-content">
+                    <p>Content for accordion 3</p>
+                    </div>
+                </div>
+            </div>
+            <div className="bg-gray-900 text-gray-900 py-16 px-8">
+                <SupportHover/>
             </div>
             <Header/>
         </div>
+
     );
 }
