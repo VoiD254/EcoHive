@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const ShuffleHero = () => {
   return (
-    <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-3 items-center  gap-8 max-w-6xl pb-16 pt-20 mx-auto my-auto">
-      <div className=" col-span-2 pr-24">
+    <section className="w-full px-4 pr-0 py-12 grid grid-cols-1 md:grid-cols-3 items-center gap-8 max-w-6xl mx-auto md:ml-80 mt-8 md:mt-18">
+      <div className="col-span-2 md:pr-20 md:-ml-72">
         <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium">
           Better every day
         </span>
-        <h3 className="text-4xl md:text-6xl font-semibold">
+        <h3 className="text-3xl md:text-6xl font-semibold">
           Let&apos;s change it up a bit
         </h3>
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
@@ -20,7 +19,7 @@ const ShuffleHero = () => {
           Find a class
         </button>
       </div>
-      <ShuffleGrid className="ml-14" />
+      <ShuffleGrid />
     </section>
   );
 };
@@ -115,7 +114,7 @@ const generateSquares = () => {
       key={sq.id}
       layout
       transition={{ duration: 1.5, type: "spring" }}
-      className="w-full h-full"
+      className="w-full h-full rounded-xl"
       style={{
         backgroundImage: `url(${sq.src})`,
         backgroundSize: "cover",
@@ -139,7 +138,7 @@ const ShuffleGrid = () => {
   }, [shuffleSquares]);
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-1">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-rows-4 h-[300px] sm:h-[450px] gap-1 mt-8">
       {squares.map((sq) => sq)}
     </div>
   );
