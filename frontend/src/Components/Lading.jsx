@@ -5,7 +5,7 @@ const ShuffleHero = () => {
   return (
     <section className="w-full px-4 pr-0 py-12 grid grid-cols-1 md:grid-cols-3 items-center gap-8 max-w-6xl mx-auto md:ml-80 mt-8 md:mt-18">
       <div className="col-span-2 md:pr-20 md:-ml-72">
-        <span className="block mb-4 text-xs md:text-sm text-indigo-500 font-medium">
+        <span className="block mb-4 text-xs md:text-sm text-green-600 font-medium">
           Better every day
         </span>
         <h3 className="text-3xl md:text-6xl font-semibold">
@@ -15,7 +15,7 @@ const ShuffleHero = () => {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in
           error repellat voluptatibus ad.
         </p>
-        <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+        <button className="bg-green-700 text-white font-medium py-2 px-4 rounded transition-all hover:bg-green-800 active:scale-95">
           Find a class
         </button>
       </div>
@@ -44,7 +44,7 @@ const shuffle = (array) => {
 const squareData = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    src: "https://etimg.etb2bimg.com/photo/99064865.cms",
   },
   {
     id: 2,

@@ -1,5 +1,4 @@
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
-
 import daisyui from 'daisyui';
 
 /** @type {import('tailwindcss').Config} */
@@ -8,7 +7,6 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     './node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}',
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   darkMode: "class",
@@ -36,14 +34,32 @@ export default {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        shimmer: {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
+          },
+        },
+        'moving-border': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          '100%': {
+            transform: 'translateX(100%)',
+          },
+        },
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        shimmer: "shimmer 2s linear infinite",
       },
     },
   },
-  plugins: [daisyui,addVariablesForColors],
+  plugins: [daisyui, addVariablesForColors],
 }
+
 function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(

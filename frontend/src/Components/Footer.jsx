@@ -3,9 +3,9 @@ import ecoHiveLogo from '../assets/EcoHive.png';
 const Footer = () => {
   return (
     <footer className="bg-white dark:bg-gray-900">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div className="md:flex md:justify-between">
+      <div className="mx-auto w-full  p-4 py-6 lg:py-8 ">
+      <hr className="my-6 border-gray-200  dark:border-gray-700 lg:my-8" />
+        <div className="md:flex md:justify-between mx-10">
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
               <img src={ecoHiveLogo} className="h-8 me-3" alt="EcoHive Logo" />
@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-6 border-gray-200  dark:border-gray-700 lg:my-8 w-full" />
         <div className="sm:flex sm:items-center flex-row justify-center">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" className="hover:underline">EcoHive™</a>. All Rights Reserved.</span>
         </div>
