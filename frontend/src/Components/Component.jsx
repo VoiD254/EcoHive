@@ -1,7 +1,7 @@
 
 const ComponentsSection = () => {
   return (
-    <div className="container px-6 py-10  pb -12 pt-16 mx-6 pr-16" id="features">
+    <div className="container  py-10 pb -12 pt-16 px-10" id="features">
       <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-black">
         explore our <br /> awesome <span className="underline decoration-green-500">Components</span>
       </h1>
