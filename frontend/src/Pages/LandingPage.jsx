@@ -8,7 +8,7 @@ import ComponentsSection from "../Components/Component";
 import About from "../Components/About";
 export const LandingPage = () =>{
     return (
-        <div className=" bg-white">
+        <div className="bg-white">
             <Navbar></Navbar>
             <ShuffleHero></ShuffleHero>
             <About></About>

@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="md:flex md:justify-between mx-10">
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
-              <img src={ecoHiveLogo} className="h-8 me-3" alt="EcoHive Logo" />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">EcoHive</span>
+              <img src={ecoHiveLogo} className="h-12 me-3" alt="EcoHive Logo" />
+              <span className="self-center text-3xl font-bold whitespace-nowrap dark:text-white text-gray-800">EcoHive</span>
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-14 sm:grid-cols-2">

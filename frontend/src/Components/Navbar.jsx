@@ -17,6 +17,15 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleScrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false); // Close the menu when an item is clicked
+  };
+
   return (
     <nav className={`fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 transition-colors duration-300 ${isScrolled ? 'bg-white bg-opacity-50 backdrop-blur-lg dark:bg-gray-900 dark:bg-opacity-50' : 'bg-white dark:bg-gray-900'}`}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -42,21 +51,21 @@ const Navbar = () => {
           </button>
         </div>
         <div className={`items-center justify-between ${isOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`} id="navbar-sticky">
-          <ul className=" flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-200 rounded-lg bg-white bg-opacity-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white md:bg-opacity-0 dark:bg-gray-900 md:dark:bg-opacity-0 dark:border-gray-700">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-200 rounded-lg bg-white bg-opacity-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white md:bg-opacity-0 dark:bg-gray-900 md:dark:bg-opacity-0 dark:border-gray-700">
             <li>
-              <a href="#" className="text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+              <a href="#" onClick={(e) => handleScrollToSection(e, '#home')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+              <a href="#about" onClick={(e) => handleScrollToSection(e, '#about')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">About</a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Features</a>
+              <a href="#features" onClick={(e) => handleScrollToSection(e, '#features')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Features</a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
+              <a href="#faq" onClick={(e) => handleScrollToSection(e, '#faq')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Team</a>
+              <a href="#team-section" onClick={(e) => handleScrollToSection(e, '#team-section')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Team</a>
             </li>
           </ul>
         </div>

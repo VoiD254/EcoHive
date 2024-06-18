@@ -8,15 +8,15 @@ const Accordion = () => {
   };
 
   return (
-    <div id="accordion-color" data-accordion="collapse" className="w-full px-6 pb-10">
+    <div id="faq" data-accordion="collapse" className="w-full px-9 pb-10">
         <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white pb-10 mt-16">
             FAQ
           </h1>
       <h2 id="accordion-color-heading-1">
         <button
           type="button"
-          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 rounded-t-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3 ${
-            activeIndex === 1 ? 'bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white' : ''
+          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 rounded-t-xl  dark:border-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-gray-800 gap-3 ${
+            activeIndex === 1 ? 'bg-green-100 dark:bg-gray-800 text-green-600 dark:text-white' : ''
           }`}
           onClick={() => toggleAccordion(1)}
           aria-expanded={activeIndex === 1}
@@ -53,7 +53,7 @@ const Accordion = () => {
           </p>
           <p className="text-gray-500 dark:text-gray-400">
             Check out this guide to learn how to{' '}
-            <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">
+            <a href="/docs/getting-started/introduction/" className="text-green-600 dark:text-green-500 hover:underline">
               get started
             </a>{' '}
             and start developing websites even faster with components on top of Tailwind CSS.
@@ -63,8 +63,8 @@ const Accordion = () => {
       <h2 id="accordion-color-heading-2">
         <button
           type="button"
-          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3 ${
-            activeIndex === 2 ? 'bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white' : ''
+          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 dark:border-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-gray-800 gap-3 ${
+            activeIndex === 2 ? 'bg-green-100 dark:bg-gray-800 text-green-600 dark:text-white' : ''
           }`}
           onClick={() => toggleAccordion(2)}
           aria-expanded={activeIndex === 2}
@@ -100,7 +100,7 @@ const Accordion = () => {
           </p>
           <p className="text-gray-500 dark:text-gray-400">
             Check out the{' '}
-            <a href="https://flowbite.com/figma/" className="text-blue-600 dark:text-blue-500 hover:underline">
+            <a href="https://flowbite.com/figma/" className="text-green-600 dark:text-green-500 hover:underline">
               Figma design system
             </a>{' '}
             based on the utility classes from Tailwind CSS and components from Flowbite.
@@ -110,8 +110,8 @@ const Accordion = () => {
       <h2 id="accordion-color-heading-3">
         <button
           type="button"
-          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right  text-left text-gray-500 border rounded-b-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800 gap-3 ${
-            activeIndex === 3 ? 'bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white' : ''
+          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right  text-left text-gray-500 border rounded-b-xl dark:border-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-gray-800 gap-3 ${
+            activeIndex === 3 ? 'bg-green-100 dark:bg-gray-800 text-green-600 dark:text-white' : ''
           }`}
           onClick={() => toggleAccordion(3)}
           aria-expanded={activeIndex === 3}
@@ -151,12 +151,12 @@ const Accordion = () => {
           <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
           <ul className="ps-5 text-gray-500 list-disc dark:text-gray-400">
             <li>
-              <a href="https://flowbite.com/pro/" className="text-blue-600 dark:text-blue-500 hover:underline">
+              <a href="https://flowbite.com/pro/" className="text-green-600 dark:text-green-500 hover:underline">
                 Flowbite Pro
               </a>
             </li>
             <li>
-              <a href="https://tailwindui.com/" rel="nofollow" className="text-blue-600 dark:text-blue-500 hover:underline">
+              <a href="https://tailwindui.com/" rel="nofollow" className="text-green-600 dark:text-green-500 hover:underline">
                 Tailwind UI
               </a>
             </li>
