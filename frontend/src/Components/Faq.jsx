@@ -8,7 +8,8 @@ const Accordion = () => {
   };
 
   return (
-    <div id="faq" data-accordion="collapse" className="w-full px-9 pb-10">
+    <section id="faq">
+    <div data-accordion="collapse" className="w-full px-9 pb-10">
         <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white pb-10 mt-16">
             FAQ
           </h1>
@@ -164,6 +165,7 @@ const Accordion = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

@@ -16,11 +16,11 @@ function ImagesSlider({ images, className, children, autoSlide = true, autoSlide
   }, [autoSlide, autoSlideInterval, images.length]);
 
   return (
+    <section id="about">
     <div className={`relative ${className}`}>
       <div
         className="absolute inset-0 flex justify-center items-center z-10 h-full w-full rounded-xl"
         style={{ background: textBackground }}
-        id="about"
       >
         {children}
       </div>
@@ -46,6 +46,7 @@ function ImagesSlider({ images, className, children, autoSlide = true, autoSlide
         </div>
       </div>
     </div>
+    </section>
   );
 }
 

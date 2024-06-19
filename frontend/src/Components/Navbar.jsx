@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ecoHiveLogo from '../assets/EcoHive.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  const sectionRefs = useRef({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +20,40 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3,
+    };
+
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(`#${entry.target.id}`);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section) => {
+      observer.observe(section);
+      sectionRefs.current[section.id] = section;
+    });
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   const handleScrollToSection = (e, sectionId) => {
     e.preventDefault();
-    const section = document.querySelector(sectionId);
+    const section = sectionRefs.current[sectionId.substring(1)];
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
     }
     setIsOpen(false); // Close the menu when an item is clicked
   };
@@ -53,19 +85,19 @@ const Navbar = () => {
         <div className={`items-center justify-between ${isOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`} id="navbar-sticky">
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-200 rounded-lg bg-white bg-opacity-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white md:bg-opacity-0 dark:bg-gray-900 md:dark:bg-opacity-0 dark:border-gray-700">
             <li>
-              <a href="#" onClick={(e) => handleScrollToSection(e, '#home')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+              <a href="#home" onClick={(e) => handleScrollToSection(e, '#home')} className={`nav-link-container ${activeSection === '#home' ? 'active' : ''} block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700`} aria-current="page">Home</a>
             </li>
             <li>
-              <a href="#about" onClick={(e) => handleScrollToSection(e, '#about')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+              <a href="#about" onClick={(e) => handleScrollToSection(e, '#about')} className={`nav-link-container ${activeSection === '#about' ? 'active' : ''} block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700`}>About</a>
             </li>
             <li>
-              <a href="#features" onClick={(e) => handleScrollToSection(e, '#features')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Features</a>
+              <a href="#features" onClick={(e) => handleScrollToSection(e, '#features')} className={`nav-link-container ${activeSection === '#features' ? 'active' : ''} block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700`}>Features</a>
             </li>
             <li>
-              <a href="#faq" onClick={(e) => handleScrollToSection(e, '#faq')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
+              <a href="#faq" onClick={(e) => handleScrollToSection(e, '#faq')} className={`nav-link-container ${activeSection === '#faq' ? 'active' : ''} block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700`}>FAQ</a>
             </li>
             <li>
-              <a href="#team-section" onClick={(e) => handleScrollToSection(e, '#team-section')} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">Team</a>
+              <a href="#team-section" onClick={(e) => handleScrollToSection(e, '#team-section')} className={`nav-link-container ${activeSection === '#team-section' ? 'active' : ''} block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-green-700 md:p-0 dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700`}>Team</a>
             </li>
           </ul>
         </div>

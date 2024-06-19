@@ -1,7 +1,8 @@
 
 const ComponentsSection = () => {
   return (
-    <div className="container  py-10 pb -12 pt-16 px-10" id="features">
+    <section id="features">
+    <div className="container  py-10 pb -12 pt-16 px-10">
       <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-black">
         explore our <br /> awesome <span className="underline decoration-green-500">Components</span>
       </h1>
@@ -73,6 +74,7 @@ const ComponentsSection = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 
