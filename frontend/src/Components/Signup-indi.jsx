@@ -13,8 +13,6 @@ const Label = ({ htmlFor, children }) => {
       </label>
     );
   };
-
-  //hello
   const Input = ({ id, type, placeholder }) => {
     return (
       <input
