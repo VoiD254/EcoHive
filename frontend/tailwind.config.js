@@ -7,7 +7,6 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     './node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}',
-    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   darkMode: "class",
   theme: {

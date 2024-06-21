@@ -1,7 +1,18 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
+import Modal from './modal';
 
 const ShuffleHero = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <section id="home" className="w-full px-4 pr-0 py-12 grid grid-cols-1 md:grid-cols-3 items-center gap-8 max-w-6xl mx-auto md:ml-80 mt-8 md:mt-18">
       <div className="col-span-2 md:pr-20 md:-ml-72">
@@ -15,11 +26,12 @@ const ShuffleHero = () => {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in
           error repellat voluptatibus ad.
         </p>
-        <button className="bg-green-700 text-white font-medium py-2 px-4 rounded transition-all hover:bg-green-800 active:scale-95">
+        <button onClick={handleOpenModal} className="bg-green-700 text-white font-medium py-2 px-4 rounded transition-all hover:bg-green-800 active:scale-95">
           Get Started
         </button>
       </div>
       <ShuffleGrid />
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
     </section>
   );
 };

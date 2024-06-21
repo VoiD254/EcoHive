@@ -1,4 +1,3 @@
-import { Header } from "../Components/Header";
 import ShuffleHero from "../Components/Lading";
 import Team from "../Components/Team";
 import Navbar from '../Components/Navbar';
@@ -16,7 +15,6 @@ export const LandingPage = () =>{
             <Accordion></Accordion>
             <Team></Team>
             <Footer></Footer>
-            <Header/>
         </div>
     );
 }
