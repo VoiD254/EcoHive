@@ -74,14 +74,14 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed w-full overflow-x-hidden z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 transition-colors duration-300 ${isScrolled ? 'bg-white bg-opacity-50 backdrop-blur-lg dark:bg-gray-900 dark:bg-opacity-50' : 'bg-white dark:bg-gray-900'}`}>
+      <nav className={`fixed w-full overflow-x-hidden drop-shadow-md z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 transition-colors duration-300 ${isScrolled ? 'bg-white bg-opacity-50 backdrop-blur-lg dark:bg-gray-900 dark:bg-opacity-50' : 'bg-white dark:bg-gray-900'}`}>
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a onClick={scrollToTop} className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer">
             <img src={ecoHiveLogo} className="h-10" alt="EcoHive Logo" />
             <span className="self-center text-3xl font-bold whitespace-nowrap dark:text-white text-black">EcoHive</span>
           </a>
           <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
-            <button onClick={handleOpenModal} type="button" className="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center active:scale-95">
+            <button onClick={handleOpenModal} type="button" className="text-white bg-ecohive-green2 hover:bg-green-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center active:scale-95">
               Get started
             </button>
             <button

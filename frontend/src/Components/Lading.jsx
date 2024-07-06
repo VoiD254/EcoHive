@@ -14,10 +14,10 @@ const ShuffleHero = () => {
   };
 
   return (
-    <section id="home" className="w-full px-4 pr-0 py-12 grid grid-cols-1 md:grid-cols-3 items-center gap-8 max-w-6xl mx-auto md:ml-80 mt-8 md:mt-18">
+    <section id="home" className="w-full h-screen px-4 pr-0 py-12 grid grid-cols-1 md:grid-cols-3 items-center gap-8 max-w-6xl mx-auto md:ml-80 mt-8 md:mt-18">
       <div className="col-span-2 md:pr-20 md:-ml-72">
         <span className="block mb-4 text-xs md:text-sm text-green-600 font-medium">
-          Better every day
+          Capybara
         </span>
         <h3 className="text-3xl md:text-6xl font-semibold">
           Let&apos;s change it up a bit

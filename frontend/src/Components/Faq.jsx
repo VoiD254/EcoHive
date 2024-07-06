@@ -23,7 +23,7 @@ const Accordion = () => {
           aria-expanded={activeIndex === 1}
           aria-controls="accordion-color-body-1"
         >
-          <span>What is Flowbite?</span>
+          <span>What is Green Credit?</span>
           <svg
             data-accordion-icon
             className={`w-3 h-3 ${activeIndex === 1 ? 'rotate-180' : ''} shrink-0`}
@@ -49,16 +49,15 @@ const Accordion = () => {
       >
         <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
           <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Flowbite is an open-source library of interactive components built on top of Tailwind CSS
-            including buttons, dropdowns, modals, navbars, and more.
+          Green credit is a financial incentive offering favorable loan terms to support environmentally sustainable projects, such as renewable energy, energy efficiency, and sustainable agriculture.
           </p>
-          <p className="text-gray-500 dark:text-gray-400">
+          {/* <p className="text-gray-500 dark:text-gray-400">
             Check out this guide to learn how to{' '}
             <a href="/docs/getting-started/introduction/" className="text-green-600 dark:text-green-500 hover:underline">
               get started
             </a>{' '}
             and start developing websites even faster with components on top of Tailwind CSS.
-          </p>
+          </p> */}
         </div>
       </div>
       <h2 id="accordion-color-heading-2">
@@ -71,7 +70,7 @@ const Accordion = () => {
           aria-expanded={activeIndex === 2}
           aria-controls="accordion-color-body-2"
         >
-          <span>Is there a Figma file available?</span>
+          <span>How do I earn Green Credit?</span>
           <svg
             data-accordion-icon
             className={`w-3 h-3 ${activeIndex === 2 ? 'rotate-180' : ''} shrink-0`}
@@ -118,7 +117,7 @@ const Accordion = () => {
           aria-expanded={activeIndex === 3}
           aria-controls="accordion-color-body-3"
         >
-          <span>What are the differences between Flowbite and Tailwind UI?</span>
+          <span>Benefits of green crdit</span>
           <svg
             data-accordion-icon
             className={`w-3 h-3 ${activeIndex === 3 ? 'rotate-180' : ''} shrink-0`}

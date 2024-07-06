@@ -16,8 +16,8 @@ export default {
           lightBeige: '#D3C8B6',  // closest to RGB(211, 200, 182)
           beige: '#D2C7B5',  // closest to RGB(210, 199, 181)
           darkBeige: '#D1C7B4',  // another close variant
-          green1: '#6B8E23',  // example green
-          green2: '#556B2F',  // example green
+          green1: '#0D949A',  // example green
+          green2: '#228B22',  // example green
           green3: '#8FBC8F',  // example green
         },
       },

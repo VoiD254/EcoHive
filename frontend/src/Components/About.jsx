@@ -32,13 +32,13 @@ function ImagesSlider({ images, className, children, autoSlide = true, autoSlide
             <div
               key={index}
               className="min-w-full h-full flex-shrink-0 flex items-center justify-center"
-              style={{ minHeight: '40rem' }} // Adjust this height as per your design
+              style={{ minHeight: '40rem' }}
             >
               <img
                 src={image}
                 alt={`Slide ${index}`}
                 className="w-full h-full object-cover"
-                style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'cover' }} // Ensures images fit within container
+                style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'cover' }}
               />
             </div>
           ))}
@@ -76,7 +76,7 @@ const About = () => {
   };
   
   return (
-    <ImagesSlider className="h-[40rem] mx-10 rounded-xl" images={images} textBackground="rgba(0, 0, 0, 0.7)">
+    <ImagesSlider className="h-[40rem] mx-10 rounded-xl " images={images} textBackground="rgba(0, 0, 0, 0.7)">
       <div className="z-50 flex flex-col justify-center items-center">
         <p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
           The hero section slideshow <br /> nobody asked for
