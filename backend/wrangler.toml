@@ -2,5 +2,5 @@ name = "backend"
 compatibility_date = "2023-12-01"
 
 [vars]
-DATABASE_URL = ""
-JWT_SECRET = ""
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZmE5NzRmOGMtZGNlMS00YjEzLWI4MTItNmM5ZDNlNjE3MjdkIiwidGVuYW50X2lkIjoiZWNiMzJmNzI3NTczYjU5ODk4NzRjOWIxN2FjMjJmYmJkMmI0OGU2MTBkYTJlNmUyOGM3ZDMzYWM1ZDI4N2EwMCIsImludGVybmFsX3NlY3JldCI6IjRiMGJiYzVkLWFkNzgtNDg1OC05MWEyLWZlNzJiMjI0MGMyMyJ9.g4oP3AR_nxbk4Aya5fhFkz60klJ-Uob304gvM4etSdY"
+JWT_SECRET = "ecohive_secret"
