@@ -1,1 +1,1 @@
-# Ecohive
+# EcoHive
