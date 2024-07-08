@@ -1,5 +1,5 @@
 import { Sidebar } from "../Components/Sidebar";
-import { DashBar } from "../Components/DashBar";
+import { DashBar } from "../Components/Dashbar";
 import { Products } from "../Components/Products";
 
 export const Dashboard = () => {

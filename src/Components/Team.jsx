@@ -166,7 +166,7 @@ const Team = () => {
                 Arnav Kawatra
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend & Frontend</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -213,7 +213,7 @@ const Team = () => {
               Sanidhya Singh
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Frontend & Research</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Research</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
