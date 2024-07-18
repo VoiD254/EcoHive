@@ -23,7 +23,7 @@ const Team = () => {
                 Pranav Patil
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Team Leader</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Team Leader & ML</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -70,7 +70,7 @@ const Team = () => {
                 Siddharth Singhal
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">IoT & ML</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">IoT & ML & App</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -94,7 +94,6 @@ const Team = () => {
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gray-300 group-hover:text-white"
                   aria-label="LinkedIn"
                   target="_blank"
-                  
                 >
                   <svg
                     className="w-6 h-6 fill-current"

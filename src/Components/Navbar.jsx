@@ -1,20 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef} from 'react';
 import ecoHiveLogo from '../assets/EcoHive.png';
-import Modal from './modal';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -81,7 +73,7 @@ const Navbar = () => {
             <span className="self-center text-3xl font-bold whitespace-nowrap dark:text-white text-black">EcoHive</span>
           </a>
           <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
-            <button onClick={handleOpenModal} type="button" className="text-white bg-ecohive-green2 hover:bg-green-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center active:scale-95">
+            <button onClick={() => navigate("/userOrOrg")} type="button" className="text-white bg-ecohive-green2 hover:bg-green-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center active:scale-95">
               Get started
             </button>
             <button
@@ -118,7 +110,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
     </>
   );
 };

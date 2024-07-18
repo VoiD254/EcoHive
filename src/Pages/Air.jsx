@@ -36,7 +36,7 @@ export const Air = () => {
       <NavService />
       <HeroSection 
       imageUrl={air}
-      heading="Air Polution Reduction"
+      heading="Air Pollution Reduction"
       description="Planting and conserving trees fosters a symbiotic relationship with nature, symbolizing growth, harmony, and sustainability. Trees represent resilience and interconnectedness, offering life-giving oxygen, shelter, and beauty. By nurturing trees, we embrace our role as stewards of the Earth, ensuring a thriving, balanced ecosystem for future generations."
       textcolor={"text-gray-400"}
       buttonColor={"bg-gray-600 hover:bg-gray-700 active:bg-gray-500"}

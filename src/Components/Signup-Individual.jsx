@@ -1,8 +1,9 @@
-"use client";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import {useNavigate} from "react-router-dom";
+import { useFirebase } from "../context/firebase";
 
 // Reusable components for label and input
 const Label = ({ htmlFor, children }) => (
@@ -26,7 +27,7 @@ const Input = ({ id, type, placeholder, showPassword, toggleShowPassword, regist
         },
         ...(type === "aadhar" && {
           pattern: {
-            value: /^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/,
+            value: /^[2-9]{1}[0-9]{11}$/,
             message: "Invalid Aadhaar Number",
           }
         }),
@@ -98,11 +99,21 @@ Input.propTypes = {
 
 // Login Form Component
 const LoginForm = ({ toggleForm }) => {
+	const firebase = useFirebase();
   const { register, handleSubmit, formState: { errors }, trigger } = useForm();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log("Login form submitted", data);
+    firebase.loginUserWithEmailAndPassword(data.email, data.password)
+      .then((userCredential) => {
+		console.log("user: ", userCredential.user);
+		navigate("/individual/dashboard");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error("Error creating user:", errorMessage);
+      });
   };
 
   const toggleShowPassword = () => {
@@ -158,12 +169,39 @@ LoginForm.propTypes = {
 
 // Signup Form Component
 const SignupForm = ({ toggleForm }) => {
+	const firebase = useFirebase();
   const { register, handleSubmit, formState: { errors }, watch, trigger } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log("Signup form submitted", data);
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const userCredential = await firebase.signupUserWithEmailAndPassword(data.email, data.password);
+      const user = userCredential.user;
+      console.log("User created:", user);
+      
+      await firebase.putData(`individual/${user.uid}`, {
+        name: data.name,
+        email: data.email,
+        phone: `+91${data.phone}`,
+        aadhar: data.aadhar,
+		password: data.password,
+		totalCredits: 0,
+		credits : {
+			air: 0,
+			water: 0,
+			agriculture: 0,
+			tree: 0,
+			other: 0
+		}
+      });
+
+      navigate('/individual/dashboard');
+    } catch (error) {
+      console.error("Error creating user:", error.message);
+    }
   };
 
   const toggleShowPassword = () => {
@@ -259,8 +297,8 @@ export function SignupLoginIndividual() {
   };
 
   return (
-    <div>
-      {isLogin ? <LoginForm toggleForm={toggleForm} /> : <SignupForm toggleForm={toggleForm} />}
+    <div className="bg-white h-screen flex items-center">
+      {isLogin ? <SignupForm toggleForm={toggleForm} /> : <LoginForm toggleForm={toggleForm} />}
     </div>
   );
 }

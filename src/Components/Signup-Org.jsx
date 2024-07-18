@@ -1,48 +1,71 @@
-"use client";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import {useNavigate} from "react-router-dom";
+import { useFirebase } from "../context/firebase";
 
 // Reusable components for label and input
 const Label = ({ htmlFor, children }) => (
-  <label htmlFor={htmlFor} className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+  <label
+    htmlFor={htmlFor}
+    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+  >
     {children}
   </label>
 );
 
-const Input = ({ id, type, placeholder, showPassword, toggleShowPassword, register, errors, validate, trigger }) => (
+const Input = ({
+  id,
+  type,
+  placeholder,
+  showPassword,
+  toggleShowPassword,
+  register,
+  errors,
+  validate,
+  trigger,
+}) => (
   <div className="relative">
     <input
       id={id}
       type={showPassword ? "text" : type}
       placeholder={placeholder}
-      className={`mt-1 block w-full px-3 py-2 border ${errors[id] ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm bg-white dark:text-gray-300 pr-10 text-black`}
+      className={`mt-1 block w-full px-3 py-2 border ${
+        errors[id] ? "border-red-500" : "border-gray-300"
+      } rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm bg-white dark:text-gray-300 pr-10 text-black`}
       {...register(id, {
         required: `${placeholder} is required`,
         pattern: type === "email" && {
           value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
           message: "Invalid email address",
         },
-        ...(type === "phone" && {
+        ...( (type === null && {
+			patter: {
+				value: null,
+				message: "Optional"
+			}
+		}) || (type === "phone" && {
           pattern: {
             value: /^[0-9]{10}$/,
             message: "Invalid phone number",
-          }
-        }),
+          },
+        })),
         ...(type === "cin" && {
           pattern: {
-              value: /^[A-Z]{1}[0-9]{5}[A-Z]{2}[0-9]{4}[A-Z]{3}[0-9]{6}$/,
-              message: "Invalid CIN",
+            value: /^[A-Z]{1}[0-9]{5}[A-Z]{2}[0-9]{4}[A-Z]{3}[0-9]{6}$/,
+            message: "Invalid CIN",
           },
-      }),
-        minLength: (type === "password" && {
-          value: 8,
-          message: "Password must be at least 8 characters long",
-        }) || (type === "text" && {
-          value: 2,
-          message: "Name must be at least 2 characters long",
         }),
+        minLength:
+          (type === "password" && {
+            value: 8,
+            message: "Password must be at least 8 characters long",
+          }) ||
+          (type === "text" && {
+            value: 2,
+            message: "Name must be at least 2 characters long",
+          }),
         validate: validate,
         onBlur: () => trigger(id),
       })}
@@ -55,7 +78,11 @@ const Input = ({ id, type, placeholder, showPassword, toggleShowPassword, regist
         {showPassword ? <FaEyeSlash /> : <FaEye />}
       </span>
     )}
-    {errors[id] && <p className="text-red-500 text-sm mt-1 overflow-hidden">{errors[id].message}</p>}
+    {errors[id] && (
+      <p className="text-red-500 text-sm mt-1 overflow-hidden">
+        {errors[id].message}
+      </p>
+    )}
   </div>
 );
 
@@ -98,11 +125,28 @@ Input.propTypes = {
 
 // Login Form Component
 const LoginForm = ({ toggleForm }) => {
-  const { register, handleSubmit, formState: { errors }, trigger } = useForm();
+	const firebase = useFirebase();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    trigger,
+  } = useForm();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log("Login form submitted", data);
+    firebase.loginUserWithEmailAndPassword(data.email, data.password)
+      .then((userCredential) => {
+		console.log("user: ", userCredential.user);
+		navigate("/org/dashboard");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error("Error creating user:", errorMessage);
+      });
   };
 
   const toggleShowPassword = () => {
@@ -111,11 +155,22 @@ const LoginForm = ({ toggleForm }) => {
 
   return (
     <div className="max-w-md w-full mx-auto p-4 md:p-8 shadow-input bg-white dark:bg-white overflow-x-hidden">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">Login to EcoHive</h2>
+      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+        Login to EcoHive
+      </h2>
       <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="Email Address" type="email" register={register} errors={errors} trigger={trigger} />
+          <Input
+            id="email"
+            placeholder="Email Address"
+            type="email"
+            register={register}
+            errors={errors}
+            trigger={trigger}
+			onChange = {(e) => setEmail(e.target.value)}
+			value={email}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
@@ -128,9 +183,11 @@ const LoginForm = ({ toggleForm }) => {
             register={register}
             errors={errors}
             trigger={trigger}
+			onChange={(e) => setPass(e.target.value)}
+			value={pass}
           />
         </LabelInputContainer>
-        
+
         <button
           className="relative mt-3 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-green-600/20 bg-[linear-gradient(110deg,#064e3b,45%,#065f46,55%,#064e3b)] bg-[length:200%_100%] px-2 font-medium text-white transition-colors active:scale-95 w-full"
           type="submit"
@@ -158,12 +215,47 @@ LoginForm.propTypes = {
 
 // Signup Form Component
 const SignupForm = ({ toggleForm }) => {
-  const { register, handleSubmit, formState: { errors }, watch, trigger } = useForm();
+	const firebase = useFirebase();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    trigger,
+  } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log("Signup form submitted", data);
+  const onSubmit = async (data) => {
+    try {
+      const userCredential = await firebase.signupUserWithEmailAndPassword(data.email, data.password);
+      const user = userCredential.user;
+      console.log("User created:", user);
+      
+      await firebase.putData(`org/${user.uid}`, {
+        name: data.name,
+        email: data.email,
+        phone: `+91${data.phone}`,
+        cin: data.cin,
+		password: data.password,
+		totalCredits: 0,
+		credits: {
+			air: 0,
+			water: 0,
+			mangrove: 0,
+			agriculture: 0,
+			tree: 0,
+			other: 0
+		}
+      });
+
+      navigate('/org/dashboard');
+    } catch (error) {
+      console.error("Error creating user:", error.message);
+    }
   };
 
   const toggleShowPassword = () => {
@@ -174,29 +266,61 @@ const SignupForm = ({ toggleForm }) => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const password = watch('password');
+  const password = watch("password");
 
   return (
     <div className="max-w-md w-full mx-auto p-4 md:p-8 shadow-input bg-white dark:bg-white overflow-x-hidden">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">Welcome to EcoHive</h2>
+      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+        Welcome to EcoHive
+      </h2>
       <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="Name" type="text" register={register} errors={errors} trigger={trigger} />
+            <Input
+              id="name"
+              placeholder="Name"
+              type="text"
+              register={register}
+              errors={errors}
+              trigger={trigger}
+            />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="Email Address" type="email" register={register} errors={errors} trigger={trigger} />
+          <Input
+            id="email"
+            placeholder="Email Address"
+            type="email"
+            register={register}
+            errors={errors}
+            trigger={trigger}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="phone">Phone Number</Label>
-          <Input id="phone" placeholder="Phone Number" type="phone" register={register} errors={errors} trigger={trigger} />
+          <Label htmlFor="phone">Contact Number</Label>
+          <Input
+            id="phone"
+            placeholder="Phone Number"
+            type="phone"
+            register={register}
+            errors={errors}
+            trigger={trigger}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="cin">Corporate Identification Number</Label>
-          <Input id="cin" placeholder="Corporate Identification Number" type="cin" register={register} errors={errors} trigger={trigger} />
+          <Input
+            id="cin"
+            placeholder="Corporate Identification Number"
+            type="cin"
+            register={register}
+            errors={errors}
+            trigger={trigger}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
@@ -209,6 +333,8 @@ const SignupForm = ({ toggleForm }) => {
             register={register}
             errors={errors}
             trigger={trigger}
+            onChange={(e) => setPass(e.target.value)}
+            value={pass}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
@@ -221,7 +347,7 @@ const SignupForm = ({ toggleForm }) => {
             toggleShowPassword={toggleShowConfirmPassword}
             register={register}
             errors={errors}
-            validate={value => value === password || "Passwords do not match"}
+            validate={(value) => value === password || "Passwords do not match"}
             trigger={trigger}
           />
         </LabelInputContainer>
@@ -259,8 +385,12 @@ export function SignupLoginOrg() {
   };
 
   return (
-    <div>
-      {isLogin ? <LoginForm toggleForm={toggleForm} /> : <SignupForm toggleForm={toggleForm} />}
+    <div className="h-screen bg-white flex items-center">
+      {isLogin ? (
+        <SignupForm toggleForm={toggleForm} />
+      ) : (
+        <LoginForm toggleForm={toggleForm} />
+      )}
     </div>
   );
 }
