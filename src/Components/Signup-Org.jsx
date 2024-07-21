@@ -249,7 +249,8 @@ const SignupForm = ({ toggleForm }) => {
 			agriculture: 0,
 			tree: 0,
 			other: 0
-		}
+		},
+		pH: 0
       });
 
       navigate('/org/dashboard');

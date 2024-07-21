@@ -12,7 +12,7 @@ export const DashboardUser = () => {
 			<DashBar/>
 			<UserProducts/>
 			<div className="flex justify-around">
-				<Transaction/>
+				<Transaction entity={"individual"}/>
 				<Credits entity={"individual"}/>
       		</div>
 		</div>
