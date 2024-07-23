@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    font-family: "Outfit", sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+}
+:root {
+  --underline-height: 2px;
+  --underline-color: #10B981;
+  --nav-link-padding-bottom: 5px;
+}
+
+/* Base styles */
+.nav-link-container {
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--nav-link-padding-bottom);
+}
+
+.nav-link-container::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: var(--underline-height);
+  left: 50%;
+  bottom: 0;
+  background-color: var(--underline-color);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link-container:hover::after,
+.nav-link-container.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+  :root {
+    --underline-height: 1.5px;
+    --nav-link-padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --underline-height: 1px;
+    --nav-link-padding-bottom: 3px;
+  }
+
+  .nav-link-container {
+    font-size: 0.9em; /* Slightly reduce font size on small screens */
+  }
+}
+

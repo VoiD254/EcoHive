@@ -22,6 +22,7 @@
     "@mui/icons-material": "^5.15.20",
     "@mui/joy": "^5.0.0-beta.36",
     "@mui/material": "^5.15.20",
+<<<<<<< HEAD
     "@tabler/icons-react": "^3.6.0",
     "chart.js": "^4.4.3",
     "clsx": "^2.1.1",
@@ -29,6 +30,17 @@
     "framer-motion": "^11.2.11",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
+=======
+    "@tabler/icons-react": "^3.11.0",
+    "apexcharts": "^3.51.0",
+    "chart.js": "^4.4.3",
+    "clsx": "^2.1.1",
+    "firebase": "^10.12.3",
+    "framer-motion": "^11.3.8",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-apexcharts": "^1.4.1",
+>>>>>>> ca9d5de (done)
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.0",
@@ -38,7 +50,11 @@
     "react-select": "^5.8.0",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
+<<<<<<< HEAD
     "tailwind-merge": "^2.3.0"
+=======
+    "tailwind-merge": "^2.4.0"
+>>>>>>> ca9d5de (done)
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
