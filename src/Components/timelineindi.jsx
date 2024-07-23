@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-const Timeline = ({ events, color = 'green-600' }) => {
+const TimelineOrg = ({ events, color = 'green-600' }) => {
   return (
     <section>
-      <div className="bg-white transition-colors duration-500 mx-4 sm:mx-6 md:mx-10 lg:mx-20 mt-0 sm:mt-0 md:mt-0">
-        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-10 items-center flex flex-col lg:h-svh justify-center pb-10 relative">
+      <div className="bg-white transition-colors duration-500 mx-4 sm:mx-6 md:mb-10 lg:mb-10 mt-0 sm:mt-0 md:mt-0">
+        <div className="w-full px-4 sm:px-6 md:px-10 lg:px-10 items-center flex flex-col lg:h-svh justify-center ">
           <div className="flex flex-row justify-left">
-            <h1 className="text-2xl text-start font-bold justify-left text-gray-800 capitalize lg:text-3xl dark:text-white pb-10">Process</h1>
+            <h1 className="text-2xl text-start font-bold justify-left text-gray-800 capitalize lg:text-3xl dark:text-white pb-10">Individual Process</h1>
           </div>
           <div className="bg-white rounded-2xl p-6 sm:p-8 border">
             <div className="mx-auto flex flex-wrap justify-between gap-4 overflow-hidden lg:mx-0 lg:gap-6">
@@ -31,7 +31,7 @@ const Timeline = ({ events, color = 'green-600' }) => {
   );
 };
 
-Timeline.propTypes = {
+TimelineOrg.propTypes = {
   events: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -42,4 +42,4 @@ Timeline.propTypes = {
   color: PropTypes.string,
 };
 
-export default Timeline;
+export default TimelineOrg;

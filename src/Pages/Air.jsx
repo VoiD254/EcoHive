@@ -1,8 +1,9 @@
 import NavService from "../Components/NavService";
-import Timeline from "../Components/timeline";
+import Timeline from "../Components/timelineorg";
 import HeroSection from "../Components/hero";
 import air from "../assets/air.jpg";
 import ContentSection from "../Components/Content";
+import Footer from "../Components/Footer"
 
 export const Air = () => {
 
@@ -30,14 +31,13 @@ export const Air = () => {
     },
   ];
 
-
   return (
     <div className="bg-white">
       <NavService />
       <HeroSection 
       imageUrl={air}
-      heading="Air Pollution Reduction"
-      description="Planting and conserving trees fosters a symbiotic relationship with nature, symbolizing growth, harmony, and sustainability. Trees represent resilience and interconnectedness, offering life-giving oxygen, shelter, and beauty. By nurturing trees, we embrace our role as stewards of the Earth, ensuring a thriving, balanced ecosystem for future generations."
+      heading="Air Polution Reduction"
+      description="Largest pollution-producing sector for all nations all over the world since the last century. Is the main factor in global warming and is a leading factor in human demise all over the world. Most of the leading billion-dollar enterprises all over the world have promised to drastically reduce their carbon footprints in the next few decades. While net industrial air pollution is still increasing every year, leading to reduced average life expectancy all over the world,."
       textcolor={"text-gray-400"}
       buttonColor={"bg-gray-600 hover:bg-gray-700 active:bg-gray-500"}
       />
@@ -47,8 +47,7 @@ export const Air = () => {
         paragraph2="We call you to partake in the sacred act of planting airs, a profound testament to our intertwined destiny with Earth. Each sapling embodies hope, resilience, and the eternal promise of renewal. Together, let us cultivate a legacy of life and harmony, nurturing the roots of existence for generations yet unborn."
       />
       <Timeline events={events} color="gray-600" />
-      <div className="text-center mt-4">
-      </div>
+      <Footer/>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const HeroSection = ({ heading, description, imageUrl, buttonColor, textcolor })
       </div>
 
       <div
-        className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 mb-96"
+        className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 mb-10"
       >
         <div className="max-w-xl text-left">
           <h1 className={`text-3xl font-extrabold ${textcolor} sm:text-5xl animate-fade-in`}>
