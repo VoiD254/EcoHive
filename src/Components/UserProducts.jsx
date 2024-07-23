@@ -1,69 +1,63 @@
 import { FaTree } from "react-icons/fa6";
-import { GiFarmer} from "react-icons/gi";
+import { GiFarmer } from "react-icons/gi";
 import { IoIosWater } from "react-icons/io";
-import {PiWindBold } from "react-icons/pi";
+import { PiWindBold } from "react-icons/pi";
 
-export const UserProducts = () =>{
+const ProductCard = ({ title, subtitle, Icon, color, link }) => {
+    return (
+        <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center p-6 bg-white border border-[#E6EDFF] rounded-xl shadow-lg hover:shadow-2xl transition-shadow no-underline"
+        >
+            <Icon className={`text-${color}-500 text-3xl mr-4`} />
+            <div className="flex flex-row items-center">
+                <div className="font-medium text-black text-lg md:text-xl lg:text-xl">
+                    {title}
+                </div>
+                {subtitle && (
+                    <div className="font-medium text-black ml-2 text-lg md:text-xl lg:text-xl">
+                        {subtitle}
+                    </div>
+                )}
+            </div>
+        </a>
+    );
+};
 
-    return(
-        <div className="grid grid-cols-4 mt-16 text-black border border-[#E6EDFF] rounded-xl h-40">
-            <div className="flex justify-center border-r">
-                <div className="font-medium text-4xl flex flex-col justify-center items-center">
-                    <div>
-                        Tree
-                    </div>
-                    <div className="mt-3">
-                        Plantation
-                    </div>
-                </div>
-                <button className="p-2 drop-shadow-md rounded-xl w-11 h-11 bg-[#FFFFFF] mt-4 flex justify-center items-center text-green-500 text-xl" onClick={() => {
-                    window.open("/Tree", "_blank");
-                }} >
-                    <FaTree/>
-                </button>     
-            </div>
-            <div className="flex justify-center border-r">
-                <div className="font-medium text-4xl flex flex-col justify-center items-center">
-                    <div>
-                        Air
-                    </div>
-                    <div className="mt-3">
-                        Pollution
-                    </div>
-                </div>
-                <button className="p-2 drop-shadow-md rounded-xl w-11 h-11 bg-[#FFFFFF] mt-4 flex justify-center items-center text-red-500 text-xl" onClick={() => {
-                    window.open("/Air", "_blank");
-                }}>
-                    <PiWindBold/>
-                </button> 
-            </div>
-            <div className="flex justify-center border-r">
-                <div className="font-medium text-4xl flex flex-col justify-center items-center">
-                    <div>
-                        Agriculture
-                    </div>
-                </div>
-                <button className="p-2 drop-shadow-md rounded-xl w-11 h-11 bg-[#FFFFFF] mt-4 flex justify-center items-center text-violet-500 text-2xl" onClick={() => {
-                    window.open("/Agri", "_blank");
-                }}>
-                    <GiFarmer/>
-                </button> 
-            </div>
-            <div className="flex justify-center border-r">
-                <div className="font-medium text-4xl flex flex-col justify-center items-center">
-                    <div>
-                        Water
-                    </div>
-                    <div className="mt-3">
-                        Management
-                    </div>
-                </div>
-                <button className="p-2 drop-shadow-md rounded-xl w-11 h-11 bg-[#FFFFFF] mt-4 flex justify-center items-center text-cyan-400 text-2xl" onClick={() => {
-                    window.open("/Water", "_blank");
-                }}>
-                    <IoIosWater/>
-                </button> 
+export const UserProducts = () => {
+    return (
+        <div className="mt-16 p-4 md:p-6 lg:p-8 bg-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ProductCard
+                    title="Tree"
+                    subtitle="Plantation"
+                    Icon={FaTree}
+                    color="green"
+                    link="/Tree"
+                />
+                <ProductCard
+                    title="Air"
+                    subtitle="Pollution"
+                    Icon={PiWindBold}
+                    color="red"
+                    link="/Air"
+                />
+                <ProductCard
+                    title="Agriculture"
+                    Icon={GiFarmer}
+                    color="violet"
+                    link="/Agri"
+                />
+                <ProductCard
+                    title="Water"
+                    subtitle="Management"
+                    Icon={IoIosWater}
+                    color="blue"
+                    link="/Water"
+                />
             </div>
         </div>
     );
-}
+};

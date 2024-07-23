@@ -1,171 +1,83 @@
-import { useState } from 'react';
+import { useState } from "react";
+import ecohive from "../assets/faq.jpg";
 
-const Accordion = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+const Faq = () => {
+    const [show, setShow] = useState(false);
+    const [show2, setShow2] = useState(false);
+    const [show3, setShow3] = useState(false);
 
-  const toggleAccordion = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+    return (
+        <section id="faq" className="h-full pt-16 pb-0">
+            <div className="2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-20 px-4">
+                <h2 className="font-semibold lg:text-4xl text-3xl lg:leading-9 md:leading-7 leading-9 text-gray-800 text-center">
+                    Frequently Asked Questions
+                </h2>
+                <div className="flex md:flex-row flex-col md:space-x-8 md:mt-16 mt-8">
+                    <div className="md:w-5/12 lg:w-4/12 w-full">
+                        <img src={ecohive} alt="EcoHive" className="w-full h-[auto] rounded-lg" style={{ maxHeight: '450px' }} />
+                    </div>
+                    <div className="md:w-7/12 lg:w-8/12 w-full md:mt-0 sm:mt-14 mt-10 content-center">
+                        <div>
+                            <div className="flex justify-between items-center cursor-pointer" onClick={() => setShow(!show)}>
+                                <h3 className="font-medium text-lg leading-5 text-gray-800 pr-6">
+                                    What is Green Credit?
+                                </h3>
+                                <button aria-label="toggle" className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d={show ? "M4.16602 10H15.8327" : "M10 4.1665V15.8332"} stroke="#1F2937" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M4.16602 10H15.8327" stroke="#1F2937" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p className={"font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " + (show ? "block" : "hidden")}>
+                            Green Credit is a credit-based system that rewards individuals and organizations for engaging in environmentally beneficial activities. It incentivizes sustainable practices by providing credits that can be used for various benefits. This system aims to promote ecological conservation and reduce carbon emissions.
+                            </p>
+                        </div>
 
-  return (
-    <section id="faq">
-    <div data-accordion="collapse" className="w-full px-9 pb-10">
-        <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white pb-10 mt-16">
-            FAQ
-          </h1>
-      <h2 id="accordion-color-heading-1">
-        <button
-          type="button"
-          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 rounded-t-xl  dark:border-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-gray-800 gap-3 ${
-            activeIndex === 1 ? 'bg-green-100 dark:bg-gray-800 text-green-600 dark:text-white' : ''
-          }`}
-          onClick={() => toggleAccordion(1)}
-          aria-expanded={activeIndex === 1}
-          aria-controls="accordion-color-body-1"
-        >
-          <span>What is Green Credit?</span>
-          <svg
-            data-accordion-icon
-            className={`w-3 h-3 ${activeIndex === 1 ? 'rotate-180' : ''} shrink-0`}
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 5L5 1 1 5"
-            />
-          </svg>
-        </button>
-      </h2>
-      <div
-        id="accordion-color-body-1"
-        className={`${activeIndex === 1 ? '' : 'hidden'}`}
-        aria-labelledby="accordion-color-heading-1"
-      >
-        <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-          Green credit is a financial incentive offering favorable loan terms to support environmentally sustainable projects, such as renewable energy, energy efficiency, and sustainable agriculture.
-          </p>
-          {/* <p className="text-gray-500 dark:text-gray-400">
-            Check out this guide to learn how to{' '}
-            <a href="/docs/getting-started/introduction/" className="text-green-600 dark:text-green-500 hover:underline">
-              get started
-            </a>{' '}
-            and start developing websites even faster with components on top of Tailwind CSS.
-          </p> */}
-        </div>
-      </div>
-      <h2 id="accordion-color-heading-2">
-        <button
-          type="button"
-          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 dark:border-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-gray-800 gap-3 ${
-            activeIndex === 2 ? 'bg-green-100 dark:bg-gray-800 text-green-600 dark:text-white' : ''
-          }`}
-          onClick={() => toggleAccordion(2)}
-          aria-expanded={activeIndex === 2}
-          aria-controls="accordion-color-body-2"
-        >
-          <span>How do I earn Green Credit?</span>
-          <svg
-            data-accordion-icon
-            className={`w-3 h-3 ${activeIndex === 2 ? 'rotate-180' : ''} shrink-0`}
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 5L5 1 1 5"
-            />
-          </svg>
-        </button>
-      </h2>
-      <div
-        id="accordion-color-body-2"
-        className={`${activeIndex === 2 ? '' : 'hidden'}`}
-        aria-labelledby="accordion-color-heading-2"
-      >
-        <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400">
-            Check out the{' '}
-            <a href="https://flowbite.com/figma/" className="text-green-600 dark:text-green-500 hover:underline">
-              Figma design system
-            </a>{' '}
-            based on the utility classes from Tailwind CSS and components from Flowbite.
-          </p>
-        </div>
-      </div>
-      <h2 id="accordion-color-heading-3">
-        <button
-          type="button"
-          className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right  text-left text-gray-500 border rounded-b-xl dark:border-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-gray-800 gap-3 ${
-            activeIndex === 3 ? 'bg-green-100 dark:bg-gray-800 text-green-600 dark:text-white' : ''
-          }`}
-          onClick={() => toggleAccordion(3)}
-          aria-expanded={activeIndex === 3}
-          aria-controls="accordion-color-body-3"
-        >
-          <span>Benefits of green crdit</span>
-          <svg
-            data-accordion-icon
-            className={`w-3 h-3 ${activeIndex === 3 ? 'rotate-180' : ''} shrink-0`}
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 5L5 1 1 5"
-            />
-          </svg>
-        </button>
-      </h2>
-      <div
-        id="accordion-color-body-3"
-        className={`${activeIndex === 3 ? '' : 'hidden'}`}
-        aria-labelledby="accordion-color-heading-3"
-      >
-        <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.
-          </p>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">
-            However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.
-          </p>
-          <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-          <ul className="ps-5 text-gray-500 list-disc dark:text-gray-400">
-            <li>
-              <a href="https://flowbite.com/pro/" className="text-green-600 dark:text-green-500 hover:underline">
-                Flowbite Pro
-              </a>
-            </li>
-            <li>
-              <a href="https://tailwindui.com/" rel="nofollow" className="text-green-600 dark:text-green-500 hover:underline">
-                Tailwind UI
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    </section>
-  );
+                        <hr className="my-7 bg-gray-200" />
+
+                        <div>
+                            <div className="flex justify-between items-center cursor-pointer" onClick={() => setShow2(!show2)}>
+                                <h3 className="font-medium text-lg leading-5 text-gray-800 pr-6">
+                                    How can individuals benefit from Green Credit?
+                                </h3>
+                                <button aria-label="toggle" className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d={show2 ? "M4.16602 10H15.8327" : "M10 4.1665V15.8332"} stroke="#1F2937" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M4.16602 10H15.8327" stroke="#1F2937" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p className={"font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " + (show2 ? "block" : "hidden")}>
+                            Individuals can earn credits by participating in eco-friendly activities, which can be redeemed for rewards and monetary incentives. It encourages sustainable lifestyle choices and provides recognition and encouragement for environmental contributions.
+                            </p>
+                        </div>
+
+                        <hr className="my-7 bg-gray-200" />
+
+                        <div>
+                            <div className="flex justify-between items-center cursor-pointer" onClick={() => setShow3(!show3)}>
+                                <h3 className="font-medium text-lg leading-5 text-gray-800 pr-6">
+                                    What advantages do companies gain from participating in Green Credit programs?
+                                </h3>
+                                <button aria-label="toggle" className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d={show3 ? "M4.16602 10H15.8327" : "M10 4.1665V15.8332"} stroke="#1F2937" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M4.16602 10H15.8327" stroke="#1F2937" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p className={"font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " + (show3 ? "block" : "hidden")}>
+                            Companies can complete their corporate social responsibility (CSR) and get priority for government approval in starting projects, getting land allocations for offices and factories, attracting environmentally conscious customers, and accessing financial incentives and tax benefits. Companies can also offset their carbon footprint and streamline the process using EcoHive for management.
+                            </p>
+                        </div>
+
+                        <hr className="my-7 bg-gray-200" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
-export default Accordion;
+export default Faq;

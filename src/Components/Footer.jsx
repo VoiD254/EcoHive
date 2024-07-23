@@ -1,5 +1,5 @@
-import  { useState } from 'react';
-import ecoHiveLogo from '../assets/EcoHive.png';
+import { useState } from 'react';
+import ecoHiveLogo from '../assets/EcoHiveWhite.png';
 import ContactModal from '../Components/Contactus';
 
 const Footer = () => {
@@ -19,63 +19,55 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-green-900 dark:bg-green-900 overflow-x-hidden">
-        <div className="mx-auto p-4 py-6 lg:py-8 ">
-          <hr className="my-6 mx-10 border-green-200 dark:border-green-500 lg:my-8" />
-          <div className="md:flex md:justify-between mx-10 justify-center">
-            <div className="mb-6 md:mb-0">
-              <a onClick={scrollToTop} className="flex items-center cursor-pointer">
-                <img src={ecoHiveLogo} className="h-12 me-3" alt="EcoHive Logo" />
-                <span className="self-center text-3xl font-bold whitespace-nowrap dark:text-white text-gray-800">EcoHive</span>
-              </a>
+      <footer className="bg-gray-800 text-white overflow-x-hidden">
+        <div className="container mx-auto p-6 lg:p-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6 px-5">
+            <a onClick={scrollToTop} className="flex items-center cursor-pointer mb-4 md:mb-0">
+              <img src={ecoHiveLogo} className="h-12 mr-3" alt="EcoHive Logo" />
+              <span className="self-center text-3xl font-bold">EcoHive</span>
+            </a>
+          </div>
+          <hr className="border-gray-100 mb-6" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-8">
+            <div>
+              <h2 className="text-sm font-semibold uppercase mb-4">Resources</h2>
+              <ul className="space-y-2">
+                <li><a href="https://react.dev/" className="hover:underline transition" target='_blank' rel='noreferrer'>React JS</a></li>
+                <li><a href="https://tailwindcss.com/" className="hover:underline transition" target='_blank' rel='noreferrer'>Tailwind CSS</a></li>
+              </ul>
             </div>
-            <div className="grid grid-cols-3 gap-8 sm:gap-14 sm:grid-cols-3">
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-4">
-                    <a href="https://react.dev/" className="hover:underline" target='_blank'>React JS</a>
-                  </li>
-                  <li>
-                    <a href="https://tailwindcss.com/" className="hover:underline" target='_blank'>Tailwind CSS</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Support</h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-4">
-                    <a onClick={openModal} className="hover:underline cursor-pointer">Contact Us</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <button
-                  onClick={scrollToTop}
-                  className='text-green-300 animate-shimmer'
+            <div>
+              <h2 className="text-sm font-semibold uppercase mb-4">Support</h2>
+              <ul className="space-y-2">
+                <li><a onClick={openModal} className="hover:underline cursor-pointer transition">Contact Us</a></li>
+              </ul>
+            </div>
+            <div className="flex flex-col items-end mt-8 pr-10">
+              <button
+                onClick={scrollToTop}
+                className="text-white animate-bounce p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-arrow-up"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="feather feather-arrow-up"
-                  >
-                    <line x1="12" y1="19" x2="12" y2="5"></line>
-                    <polyline points="5 12 12 5 19 12"></polyline>
-                  </svg>
-                </button>
-              </div>
+                  <line x1="12" y1="19" x2="12" y2="5"></line>
+                  <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
-          <hr className="my-6 mx-10 border-green-200 dark:border-green-500 lg:my-8" />
-          <div className="sm:flex sm:items-center flex-row justify-center">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" className="hover:underline" target='_blank'>EcoHive™</a>. All Rights Reserved.</span>
+          <hr className="border-gray-100 mt-6 mb-4" />
+          <div className="text-center">
+            <span className="text-sm">© 2024 <a href="#" className="hover:underline transition" target='_blank' rel='noreferrer'>EcoHive™</a>. All Rights Reserved.</span>
           </div>
         </div>
       </footer>

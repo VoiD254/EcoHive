@@ -1,9 +1,11 @@
 import dhruv from '../assets/dhruv.jpg'
 import sid from '../assets/Sid.jpg'
+import arnav from '../assets/arnav.jpeg'
+import patil from '../assets/patil.jpeg'
 
 const Team = () => {
     return (
-      <section className="bg-white dark:bg-gray-900" id='team-section'>
+      <section className="bg-gray-100 dark:bg-gray-900 py-16" id='team-section'>
         <div className="container px-6 py-10 mx-auto">
           <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
             Team Capybara
@@ -15,7 +17,7 @@ const Team = () => {
             <div className="flex flex-col items-center p-8 rounded-xl">
               <img
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                src={patil}
                 alt="Pranav Patil"
               />
   
@@ -23,11 +25,11 @@ const Team = () => {
                 Pranav Patil
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Team Leader & ML</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Team Leader</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
-                  href="#"
+                  href="https://github.com/pranav7227"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-300 group-hover:text-white"
                   aria-label="Github"
                   target="_blank"
@@ -42,7 +44,7 @@ const Team = () => {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/pranav-patil-095465225/"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gray-300 group-hover:text-white"
                   aria-label="LinkedIn"
                   target="_blank"
@@ -70,7 +72,7 @@ const Team = () => {
                 Siddharth Singhal
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">IoT & ML & App</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">IoT & ML</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -94,6 +96,7 @@ const Team = () => {
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-gray-300 group-hover:text-white"
                   aria-label="LinkedIn"
                   target="_blank"
+                  
                 >
                   <svg
                     className="w-6 h-6 fill-current"
@@ -157,7 +160,7 @@ const Team = () => {
             <div className="flex flex-col items-center p-8 rounded-xl">
               <img
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                src={arnav}
                 alt="Arnav Kawatra"
               />
   
@@ -165,7 +168,7 @@ const Team = () => {
                 Arnav Kawatra
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend & Frontend</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -212,7 +215,7 @@ const Team = () => {
               Sanidhya Singh
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Research</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Frontend & Research</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a

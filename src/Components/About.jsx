@@ -1,89 +1,80 @@
-import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import Modal from './modal';
-import { useNavigate } from "react-router-dom";
+import mission from "../assets/mission.jpg";
 
-function ImagesSlider({ images, className, children, autoSlide = true, autoSlideInterval = 3000, textBackground = "rgba(0, 0, 0, 0.5)" }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  useEffect(() => {
-    if (!autoSlide) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, autoSlideInterval);
-
-    return () => clearInterval(interval);
-  }, [autoSlide, autoSlideInterval, images.length]);
-
+const About = () => {
   return (
-    <section id="about">
-    <div className={`relative ${className}`}>
-      <div
-        className="absolute inset-0 flex justify-center items-center z-10 h-full w-full rounded-xl"
-        style={{ background: textBackground }}
-      >
-        {children}
-      </div>
-      <div className="overflow-hidden h-full w-full rounded-xl">
-        <div
-          className="flex transition-transform duration-500 ease-in-out h-full"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="min-w-full h-full flex-shrink-0 flex items-center justify-center"
-              style={{ minHeight: '40rem' }}
-            >
-              <img
-                src={image}
-                alt={`Slide ${index}`}
-                className="w-full h-full object-cover"
-                style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'cover' }}
-              />
+    <section id="about" className="pt-16 pb-0">
+      <div className="2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-20 px-4">
+        <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-8">
+          <div className="lg:w-2/3">
+            <h2 className="text-xl text-green-600 font-semibold">EcoHive</h2>
+            <h1 className="text-4xl font-bold text-black mt-2">
+            Save the world and earn while you do it! <br /> Be the change and watch your impact grow.
+            </h1>
+            <p className="mt-6 text-lg text-gray-700 leading-relaxed">
+            In the quiet act of planting trees, saving water, purifying the air, and nurturing mangroves, we carve the path to a greener tomorrow. Embrace the power to transform our world. EcoHive is working towards this initiative. In a world full of capitalism, we work to improve it for future generations. <br /> <p className="mt-3 text-green-900"> &quot;Planting trees, conserving water, purifying the air, and nurturing mangroves - each act is a step towards healing our planet. Embrace these changes for a brighter, more sustainable future. &quot; <br /> <span className="mt-3 text-green-700 font-semibold"> - Wangari Maathai</span></p>  
+            </p>
+          </div>
+          <div className="lg:w-1/3">
+            <img 
+              src={mission}
+              alt="Team Meeting" 
+              className="w-full h-auto rounded-md" 
+            />
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-8 mt-12">
+          {[
+            {
+              icon: (
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path xmlns="http://www.w3.org/2000/svg" d="M 16 1 C 14.346649 1 13 2.3467 13 4 L 13 5 C 13 5.9706181 13.471677 6.8262 14.189453 7.375 C 12.312242 8.1760831 11 10.180739 11 12.5 A 0.50004997 0.50004997 0 0 0 11.5 13 L 20.5 13 A 0.50004997 0.50004997 0 0 0 21 12.5 C 21 10.180739 19.687758 8.1760831 17.810547 7.375 C 18.528323 6.8262 19 5.9706181 19 5 L 19 4 C 19 2.3467 17.653351 1 16 1 z M 16 2 C 17.116649 2 18 2.8834 18 4 L 18 5 C 18 6.1167 17.116649 7 16 7 C 14.883351 7 14 6.1167 14 5 L 14 4 C 14 2.8834 14.883351 2 16 2 z M 16 8 C 18.039765 8 19.67967 9.7299 19.910156 12 L 12.089844 12 C 12.32033 9.7299 13.960235 8 16 8 z M 15.5 14 L 15.5 19.697266 L 10.566406 22.546875 L 11.066406 23.412109 L 16 20.5625 L 20.933594 23.412109 L 21.433594 22.546875 L 16.5 19.697266 L 16.5 14 L 15.5 14 z M 6 19 C 4.3466486 19 3 20.3467 3 22 L 3 23 C 3 23.970618 3.4716767 24.8262 4.1894531 25.375 C 2.3122415 26.176083 1 28.180739 1 30.5 A 0.50004997 0.50004997 0 0 0 1.5 31 L 10.5 31 A 0.50004997 0.50004997 0 0 0 11 30.5 C 11 28.180739 9.6877585 26.176083 7.8105469 25.375 C 8.5283233 24.8262 9 23.970618 9 23 L 9 22 C 9 20.3467 7.6533514 19 6 19 z M 26 19 C 24.346649 19 23 20.3467 23 22 L 23 23 C 23 23.970618 23.471677 24.8262 24.189453 25.375 C 22.312242 26.176083 21 28.180739 21 30.5 A 0.50004997 0.50004997 0 0 0 21.5 31 L 30.5 31 A 0.50004997 0.50004997 0 0 0 31 30.5 C 31 28.180739 29.687758 26.176083 27.810547 25.375 C 28.528323 24.8262 29 23.970618 29 23 L 29 22 C 29 20.3467 27.653351 19 26 19 z M 6 20 C 7.1166486 20 8 20.8834 8 22 L 8 23 C 8 24.1167 7.1166486 25 6 25 C 4.8833514 25 4 24.1167 4 23 L 4 22 C 4 20.8834 4.8833514 20 6 20 z M 26 20 C 27.116649 20 28 20.8834 28 22 L 28 23 C 28 24.1167 27.116649 25 26 25 C 24.883351 25 24 24.1167 24 23 L 24 22 C 24 20.8834 24.883351 20 26 20 z M 6 26 C 8.0397649 26 9.6796703 27.7299 9.9101562 30 L 2.0898438 30 C 2.3203297 27.7299 3.9602351 26 6 26 z M 26 26 C 28.039765 26 29.67967 27.7299 29.910156 30 L 22.089844 30 C 22.32033 27.7299 23.960235 26 26 26 z" stroke="#228B22" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              ),
+              title: "Collaborations",
+              description: "We will provide cross-platform collaboration in our app and website so that users can benefit from their initiative."
+            },
+            {
+              icon: (
+                <svg width="30" height="30" viewBox="0 0 100 100" fill="#228B22" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m45.004 91.945c-6.5664 0.007813-12.957-2.0938-18.238-5.9961-0.71094-0.69922-3.9531-0.27734-4.8477-0.38281h0.003906c-0.73047 2.4766-3.0039 4.1797-5.5898 4.1836h-6.8906c-3.2109-0.003906-5.8164-2.6055-5.8203-5.8164v-29.512c0.003906-3.2148 2.6094-5.8164 5.8203-5.8203h6.8906c2.5859 0.003907 4.8555 1.707 5.5859 4.1836 7.1055-0.070312 15.805-0.48828 21.996 3.418 3.2305 1.5508 6.793 2.2812 10.375 2.1289 4.4102-0.058593 8.2656 2.9648 9.2617 7.2617 5.7109-2.2383 7.75-2.8672 9.207-2.7422 4.4531 0.14453 8.2188 3.3477 9.0781 7.7227 0.85547 4.375-1.418 8.7617-5.4922 10.582-7.75 2.9375-22.883 11.426-31.34 10.789zm-22.852-12.629c2.8711-0.44141 5.8086 0.12109 8.3125 1.5938 7.0156 5.1406 16.219 6.1992 24.215 2.7852l19.191-8.2812h0.003906c1.4141-0.62109 2.2109-2.1406 1.9102-3.6562-0.30078-1.5156-1.6133-2.6211-3.1602-2.6562-3.4922 0.99609-6.9141 2.2227-10.246 3.668-1.7305 2.7461-4.7461 4.4102-7.9922 4.4062h-9.75c-1.707-0.023437-3.0781-1.4141-3.0781-3.125 0-1.707 1.3711-3.1016 3.0781-3.125h9.75c1.7227-0.027343 3.1094-1.4219 3.1289-3.1445 0.015625-1.7227-1.3438-3.1445-3.0664-3.2031-4.7266 0.17578-9.4219-0.84375-13.652-2.9648-4.7578-3-12.555-2.6562-18.645-2.5781zm-12.281 4.1836h6.0312v-28.648h-6.0312zm62.148-14.445zm-15.305-14.195h0.003906c-5.1172 0.011719-10.078-1.7461-14.043-4.9805-11.527 4.0273-25.5-6.2227-24.809-18.496-0.6875-12.129 13.363-22.402 24.809-18.352v0.003906c4.1172-3.207 9.1875-4.9492 14.406-4.9414 5.2188 0.003906 10.285 1.7539 14.395 4.9688 11.547-4.1055 25.598 6.1406 24.898 18.465 0.69141 12.152-13.453 22.457-24.906 18.32l0.003906-0.003906c-4.2578 3.1992-9.4297 4.957-14.754 5.0156zm-11.102-10.711c9.2383 7.9102 20.449 4.6484 26.312-3.9492 2.2148-3.7422 2.9258-8.1875 1.9883-12.434s-3.4492-7.9766-7.0312-10.441c-3.582-2.4648-7.9688-3.4766-12.27-2.832-4.3008 0.64453-8.1953 2.9023-10.895 6.3086-2.7031 3.4062-4.0117 7.7109-3.6602 12.047 0.35156 4.332 2.3359 8.3711 5.5547 11.301zm31.047 0.30469c3.5117 0.10156 6.9141-1.2227 9.4336-3.6719 2.5195-2.4453 3.9453-5.8086 3.9453-9.3203 0-3.5156-1.418-6.8789-3.9375-9.3281-2.5195-2.4492-5.9219-3.7734-9.4336-3.6758 2.5273 3.8672 3.8711 8.3828 3.8672 13 0 4.6172-1.3477 9.1328-3.875 12.996zm-39.438-26.004c-3.4844-0.003907-6.8242 1.3828-9.2734 3.8594-2.4492 2.4766-3.8008 5.832-3.7578 9.3164 0.046875 3.4844 1.4883 6.8008 4 9.2109 2.5156 2.4141 5.8906 3.7148 9.3711 3.6172-2.4844-3.8828-3.8047-8.3945-3.8008-13 0-4.6094 1.3242-9.1172 3.8164-12.996-0.12109-0.003906-0.23828-0.007812-0.35547-0.007812zm19.902 29.238-0.003906 0.003906c-1.6094 0-2.957-1.2266-3.1094-2.832h-2.0352c-1.707-0.023437-3.082-1.4141-3.082-3.125 0-1.707 1.375-3.0977 3.082-3.125h5.1445c1.1172-0.015625 2.0078-0.92969 1.9961-2.0469-0.015626-1.1133-0.93359-2.0078-2.0508-1.9922-3.9219-0.078124-7.2539-2.8906-7.9922-6.7422-0.74219-3.8516 1.3125-7.6953 4.9219-9.2266-0.12109-1.6992 1.1406-3.1875 2.8398-3.3398 1.6992-0.15625 3.207 1.0742 3.3984 2.7695h2.0352c1.707 0.027344 3.0781 1.418 3.0781 3.125 0 1.7109-1.3711 3.1016-3.0781 3.125h-5.1484c-1.1094 0.019531-1.9961 0.93359-1.9805 2.0469 0.011719 1.1094 0.92188 2 2.0352 1.9922 3.9219 0.078126 7.2578 2.8867 8 6.7383 0.73828 3.8555-1.3125 7.6992-4.9297 9.2266 0.070312 0.875-0.22656 1.7383-0.81641 2.3867-0.59375 0.64453-1.4297 1.0156-2.3086 1.0195z" stroke="#228B22" strokeWidth="0" strokeLinecap="round" strokeLinejoin="round"></path>
+                </svg>
+              ),
+              title: "Reward System",
+              description: "Users will be provided with financial rewards for the humanitarian initiatives. All domains will be the same for an Organization or a Person."
+            },
+            {
+              icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 80 80">
+                  <path d="m86.719 85.105h-73.438c-0.42969 0-0.78125-0.35156-0.78125-0.78125v-5.9102c0-0.42969 0.35156-0.78125 0.78125-0.78125h73.438c0.42969 0 0.78125 0.35156 0.78125 0.78125v5.9102c0 0.42969-0.35156 0.78125-0.78125 0.78125zm-72.656-1.5625h71.875v-4.3438h-71.875v4.3477z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m74.949 79.199c-0.42969 0-0.78125-0.35156-0.78125-0.78125v-36.668h-9.8164v36.668c0 0.42969-0.35156 0.78125-0.78125 0.78125-0.42969 0-0.78125-0.35156-0.78125-0.78125v-37.449c0-0.42969 0.35156-0.78125 0.78125-0.78125h11.375c0.42969 0 0.78125 0.35156 0.78125 0.78125v37.449c0 0.42969-0.35156 0.78125-0.78125 0.78125z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m35.988 79.199c-0.42969 0-0.78125-0.35156-0.78125-0.78125v-11.668h-9.8164v11.668c0 0.42969-0.35156 0.78125-0.78125 0.78125s-0.78125-0.35156-0.78125-0.78125v-12.453c0-0.42969 0.35156-0.78125 0.78125-0.78125h11.379c0.42969 0 0.78125 0.35156 0.78125 0.78125v12.453c0 0.42969-0.35156 0.78125-0.78125 0.78125z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m55.469 79.199h-11.375c-0.42969 0-0.78125-0.35156-0.78125-0.78125v-24.902c0-0.42969 0.35156-0.78125 0.78125-0.78125h11.375c0.42969 0 0.78125 0.35156 0.78125 0.78125v24.902c0 0.42969-0.35156 0.78125-0.78125 0.78125zm-10.594-1.5625h9.8125v-23.34h-9.8125z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m21.973 60.402c-0.23828 0-0.47656-0.11328-0.62891-0.31641-0.25391-0.34766-0.17969-0.83594 0.16797-1.0938l43.895-32.324c0.34766-0.25391 0.83594-0.17969 1.0938 0.16797 0.25391 0.34766 0.17969 0.83594-0.16797 1.0938l-43.895 32.324c-0.14062 0.10156-0.30078 0.15234-0.46484 0.15234z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m65.477 32.766c-0.019531 0-0.042968 0-0.0625-0.003906-0.42969-0.035157-0.74609-0.41406-0.71094-0.84375l0.32812-3.9062-3.957-0.32812c-0.42969-0.035156-0.75391-0.41406-0.71094-0.84375 0.035157-0.42969 0.41016-0.74609 0.84375-0.71094l4.7383 0.39062c0.20703 0.015625 0.40234 0.11719 0.53125 0.27344 0.13281 0.15625 0.19922 0.35938 0.17969 0.57031l-0.39062 4.6875c-0.042969 0.41016-0.38281 0.71875-0.78516 0.71875z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m30.809 45.07c-4.0352 0-7.8242-1.5664-10.672-4.4141-2.8477-2.8516-4.4141-6.6406-4.4141-10.672 0-4.0352 1.5664-7.8242 4.4141-10.672 2.8516-2.8477 6.6406-4.4141 10.672-4.4141 8.3203 0 15.09 6.7695 15.09 15.09 0 8.3203-6.7695 15.09-15.09 15.09zm0-28.613c-7.457 0-13.523 6.0703-13.523 13.523 0 7.457 6.0703 13.523 13.523 13.523 7.457 0 13.523-6.0703 13.523-13.523 0-7.457-6.0703-13.523-13.523-13.523z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m30.809 39.062c-2.7188 0-4.9297-2.2109-4.9297-4.9297 0-0.42969 0.35156-0.78125 0.78125-0.78125 0.42969 0 0.78125 0.35156 0.78125 0.78125 0 1.8555 1.5156 3.3711 3.3711 3.3711s3.3711-1.5156 3.3711-3.3711c0-1.8555-1.5156-3.3711-3.3711-3.3711-2.7188 0-4.9297-2.2109-4.9297-4.9297s2.2109-4.9297 4.9297-4.9297 4.9297 2.2109 4.9297 4.9297c0 0.42969-0.35156 0.78125-0.78125 0.78125-0.42969 0-0.78125-0.35156-0.78125-0.78125 0-1.8555-1.5156-3.3711-3.3711-3.3711-1.8555 0-3.3711 1.5156-3.3711 3.3711s1.5156 3.3711 3.3711 3.3711c2.7188 0 4.9297 2.2109 4.9297 4.9297s-2.2109 4.9297-4.9297 4.9297z" fillRule="evenodd"  stroke="#228B22" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m30.809 22.461c-0.42969 0-0.78125-0.35156-0.78125-0.78125v-1.4141c0-0.42969 0.35156-0.78125 0.78125-0.78125 0.42969 0 0.78125 0.35156 0.78125 0.78125v1.4141c0 0.42969-0.35156 0.78125-0.78125 0.78125z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="m30.809 40.477c-0.42969 0-0.78125-0.35156-0.78125-0.78125v-1.4141c0-0.42969 0.35156-0.78125 0.78125-0.78125 0.42969 0 0.78125 0.35156 0.78125 0.78125v1.4141c0 0.42969-0.35156 0.78125-0.78125 0.78125z" fillRule="evenodd"  stroke="#228B22" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              ),
+              title: "Growth Tracker",
+              description: "Track and promote the growth in user activities over time. With this, our app will provide targeted suggestions for a user-friendly experience."
+            },
+          ].map((card, index) => (
+            <div key={index} className="flex items-start lg:w-1/3 bg-gray-100 p-6 rounded-md shadow-md">
+              <div className="mr-4 flex-shrink-0">
+                {card.icon}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-green-800">{card.title}</h3>
+                <p className="mt-2 text-gray-600">{card.description}</p>
+              </div>
             </div>
           ))}
-        </div>
+        </div>      
       </div>
-    </div>
     </section>
   );
-}
-
-ImagesSlider.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  autoSlide: PropTypes.bool,
-  autoSlideInterval: PropTypes.number,
-  textBackground: PropTypes.string,
 };
-
-// About Component
-const About = () => {
-  const images = [
-    "https://media.assettype.com/outlookindia/import/uploadimage/library/16_9/16_9_5/IMAGE_1654424558.webp?w=640&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0",
-    "https://housing.com/news/wp-content/uploads/2023/03/shutterstock_2008709621-1200x700-compressed.jpg",
-    "https://www.asc-csa.gc.ca/images/satellites/quotidien/agriculture-banner.jpg",
-  ];
-  const navigate = useNavigate();
-  
-  return (
-    <ImagesSlider className="h-[40rem] mx-10 rounded-xl " images={images} textBackground="rgba(0, 0, 0, 0.7)">
-      <div className="z-50 flex flex-col justify-center items-center">
-        <p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-          The hero section slideshow <br /> nobody asked for
-        </p>
-        <p className="font-bold mx-28 text-sm md:text-1xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aspernatur saepe iure suscipit hic doloribus eaque quod adipisci nulla aperiam repellat voluptate nam commodi laboriosam magni illum, cumque, eius officia.
-        </p>
-        <button onClick={() => navigate("/userOrOrg")}className="relative inline-flex h-12 animate-shimmer items-center justify-center rounded-3xl mt-7 border border-green-600/20 bg-[linear-gradient(110deg,#064e3b,45%,#065f46,55%,#064e3b)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors active:scale-95">
-          <span>Get Started →</span>
-          <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-green-600 to-transparent rounded-3xl" />
-        </button>
-      </div>
-    </ImagesSlider>
-  );
-}
 
 export default About;

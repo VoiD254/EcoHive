@@ -1,87 +1,47 @@
 import { useFirebase, firebaseAuth } from "../context/firebase";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import {onValue} from "firebase/database";
+import { onValue } from "firebase/database";
 
-export const Credits = ({entity}) =>{
-    const firebase = useFirebase();
-    const [totalCreds, setTotalCreds] = useState(0);
-    const [creds, setCreds] = useState({
-        agriculture: 0,
-        air: 0, 
-        other: 0,
-        tree: 0,
-        water: 0,
-        mangrove: 0
+export const Credits = ({ entity }) => {
+  const firebase = useFirebase();
+  const [totalCreds, setTotalCreds] = useState(0);
+
+  const getCredits = async (userId) => {
+    try {
+      const totalCredits = await firebase.getLiveData(`${entity}/${userId}/totalCredits`);
+      onValue(totalCredits, (snapshot) => {
+        if (snapshot.exists()) {
+          setTotalCreds(snapshot.val());
+        }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
+      if (user) {
+        getCredits(user.uid);
+      } else {
+        console.log("You are logged out");
+      }
     });
 
-    const getCredits = async (userId) =>{
-        try{
-            const totalCredits = await firebase.getLiveData(`${entity}/${userId}/totalCredits`);
-            onValue(totalCredits, (snapshot) => {
-                if (snapshot.exists()) {
-                  setTotalCreds(snapshot.val());
-                }
-            });
-            const credits = await firebase.getLiveData(`${entity}/${userId}/credits`);
-            onValue(credits, (snapshot) => {
-                if (snapshot.exists()) {
-                  setCreds(snapshot.val());
-                }
-            });
-            // console.log(creds);
-        }catch(e){
-            console.error(e);
-        }
-    }
+    return () => unsubscribe();
+  }, []);
 
-    getCredits();
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
-            if (user) {
-              getCredits(user.uid);
-            } else {
-              console.log("You are logged out");
-            }
-        });
-      
-        return () => unsubscribe();
-    }, []);
-    
-    return(
-        <div className="mt-12">
-            <div className="text-4xl text-black font-semibold">
-                Your Credits
-            </div>
-            <div className="flex justify-center text-black text-6xl mt-2">
-                {totalCreds}
-            </div>
-            <div className="text-black mt-4 text-lg ">
-                <h2 className="font-medium text-xl">
-                    Credits Distribution
-                </h2>
-                <div className="mt-2">
-                    Tree Plantation: {creds.tree}
-                </div> 
-                <div className="my-1">
-                    Air Pollution: {creds.air}
-                </div>
-                <div className="my-1">
-                    Agriculture: {creds.agriculture}
-                </div>
-                {entity === "org" && (
-                    <div className="my-1">
-                        Mangrove: {creds.mangrove}
-                    </div>
-                )}
-                <div className="my-1"> 
-                    Water Management: {creds.water}
-                </div>
-                <div>
-                    Other: {creds.tree}
-                </div>
-            </div>
+  return (
+    <div className="flex flex-col items-center justify-center ml-4 w-full bg-white p-4">
+      <div className="bg-white p-6 sm:p-8 md:p-12 lg:p-16 rounded-lg text-center w-full max-w-md">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-2">
+          Your Credits
         </div>
-    );
-}
+        <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-green-500 mt-4 animate-pulse">
+          {totalCreds}
+        </div>
+      </div>
+    </div>
+  );
+};
