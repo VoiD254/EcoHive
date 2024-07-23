@@ -25,7 +25,7 @@ const Team = () => {
                 Pranav Patil
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Team Leader</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Team Leader & ML</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -72,7 +72,7 @@ const Team = () => {
                 Siddharth Singhal
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">IoT & ML</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">IoT & App</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -168,7 +168,7 @@ const Team = () => {
                 Arnav Kawatra
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Backend</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Frontend & Backend</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
@@ -215,7 +215,7 @@ const Team = () => {
               Sanidhya Singh
               </h1>
   
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Frontend & Research</p>
+              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">Research</p>
   
               <div className="flex mt-3 -mx-2 pt-3">
                 <a
