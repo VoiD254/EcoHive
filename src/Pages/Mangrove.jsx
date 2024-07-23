@@ -1,9 +1,10 @@
 
-import Timeline from "../Components/timeline";
+import Timeline from "../Components/timelineorg";
 import HeroSection from "../Components/hero"
 import mangrove from "../assets/mangrove.jpg"
 import ContentSection from "../Components/Content";
 import NavService from "../Components/NavService";
+import Footer from "../Components/Footer"
 
 
 export const Mangrove = () =>{
@@ -12,23 +13,23 @@ export const Mangrove = () =>{
   const events = [
     {
       id: 1,
-      title: "Company Inception",
-      description: "The company was born out of a vision to innovate.",
+      title: "Planting & Prepration",
+      description: " Open the Mangrove section in app provide, location where you intent to plant, our app will recomend best time and type of mangrove to plant bases on location, obtain and verify permits and prepare site for plantation.",
     },
     {
       id: 2,
-      title: "Achieved $65 Million Funding",
-      description: "In an affirmation of our potential and promise, we secured a substantial funding of $65 million.",
+      title: "Plant Mangrove",
+      description: "Partner with local communitites to carry out plantation process, use GPS enabled device to ensure acurate location tracking, upload a before and after photo for documentation.",
     },
     {
       id: 3,
-      title: "Beta Version Launch",
-      description: "Marking a significant step forward, we released the beta version of our product.",
+      title: "Monitor Mangrove",
+      description: "Develop a monitoring schedule and conduct a periodic site visits ensuring mangroves are cared and protected from environmental threats.",
     },
     {
       id: 4,
-      title: "Product's Global Rollout",
-      description: "The culmination of our efforts and dedication led to the global launch of our product.",
+      title: "Receive Green Credit By Verification",
+      description: "After 36 months click updated photos of planting sites  for Maangroves and upload for app verification. After verification our ML model and Satelite willverify the growth of Mangroves, area covered, planting density and NGO's or organizations will receive their green credits within 30 days recognizing their contribution",
     },
   ];
 
@@ -39,16 +40,17 @@ export const Mangrove = () =>{
       <HeroSection 
       imageUrl={mangrove}
       heading="Mangrove Conservation"
-      description="Planting and conserving trees fosters a symbiotic relationship with nature, symbolizing growth, harmony, and sustainability. Trees represent resilience and interconnectedness, offering life-giving oxygen, shelter, and beauty. By nurturing trees, we embrace our role as stewards of the Earth, ensuring a thriving, balanced ecosystem for future generations."
+      description="Mangrove forests have existed for over 100 years, a testament to their longevity and ecological significance. They are home to over 1000 species of fish, birds, and other wildlife. Mangroves reduce coastal erosion by 70%, protecting us from storms, tsunamis, and flooding. Mangrove forests can store five times more carbon per hectare than tropical rainforests."
       textcolor={"text-green-400"}
       buttonColor={"bg-green-600 hover:bg-green-700 active:bg-green-500"}
       />
-      <ContentSection
+      {/* <ContentSection
       title="Mangrove Conservation"
-      paragraph1="Planting and conserving mangroves fosters a symbiotic relationship with nature, symbolizing growth, harmony, and sustainability. mangroves represent resilience and interconnectedness, offering life-giving oxygen, shelter, and beauty. By nurturing mangroves, we embrace our role as stewards of the Earth, ensuring a thriving, balanced ecosystem for future generations."
+      paragraph1="Mangrove Forest have existed for over 100 years a testament to their longevity and ecological significance. They are homne to over 1000 species of fish, birds and other wild life. Mangrove reduce costal erosion by 70% protecting us from strom ,tsunami and flooding. Mangrove forest can store 5 time more carbon per hect are than tropical rain forest "
       paragraph2=" We call you to partake in the sacred act of planting mangroves, a profound testament to our intertwined destiny with Earth. Each sapling embodies hope, resilience, and the eternal promise of renewal. Together, let us cultivate a legacy of life and harmony, nurturing the roots of existence for generations yet unborn."
-      />
+      /> */}
       <Timeline events={events} color="green-600" />
+      <Footer />
       </div>
     );
 }
