@@ -1,10 +1,9 @@
-import { firebaseAuth, useFirebase } from "../context/firebase";
+import { firebaseAuth } from "../context/firebase";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, get, query, orderByChild, equalTo, set, push } from "firebase/database";
 
 export const Transaction = ({ entity }) => {
-    const firebase = useFirebase();
     const [senderEmail, setSenderEmail] = useState("");
     const [receiverEmail, setReceiverEmail] = useState("");
     const [transferCredits, setTransferCredits] = useState(0);
@@ -115,12 +114,12 @@ export const Transaction = ({ entity }) => {
 
     return (
         <div className="w-full max-w-sm ml-0 p-4 bg-white rounded-lg ">
-            <div className="text-gray-800 text-2xl font-semibold mb-6 text-center">
+            <div className="text-gray-800 text-3xl font-semibold mb-6 text-center">
                 Transfer Credits
             </div>
             <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
                 <div className="flex flex-col">
-                    <label className="text-gray-700 text-sm font-medium">Receiver's Email Address</label>
+                    <label className="text-gray-700 text-lg font-medium">Receiver's Email Address</label>
                     <input
                         className="w-full bg-gray-100 mt-1 p-2 rounded-lg placeholder-gray-500 text-gray-800 "
                         type="email"
@@ -131,7 +130,7 @@ export const Transaction = ({ entity }) => {
                     />
                 </div>
                 <div className="flex flex-col">
-                    <label className="text-gray-700 text-sm font-medium">Credits</label>
+                    <label className="text-gray-700 text-lg font-medium">Credits</label>
                     <input
                         className="w-full bg-gray-100 mt-1 p-2 rounded-lg placeholder-gray-500 text-gray-800"
                         type="number"
@@ -143,7 +142,7 @@ export const Transaction = ({ entity }) => {
                     />
                 </div>
                 <div className="flex flex-col">
-                    <label className="text-gray-700 text-sm font-medium">Receiver's Entity</label>
+                    <label className="text-gray-700 text-lg font-medium">Receiver's Entity</label>
                     <select
                         className="w-full bg-gray-100 mt-1 p-2 rounded-lg text-gray-800"
                         value={receiverEntity}
