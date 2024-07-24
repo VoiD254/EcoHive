@@ -270,7 +270,7 @@ const SignupForm = ({ toggleForm }) => {
   const password = watch("password");
 
   return (
-    <div className="max-w-md w-full mx-auto p-4 md:p-8 shadow-input bg-white dark:bg-white overflow-x-hidden">
+    <div className="max-w-md w-full h-full mx-auto p-4 md:p-8 shadow-input bg-white dark:bg-white overflow-x-hidden">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Welcome to EcoHive
       </h2>

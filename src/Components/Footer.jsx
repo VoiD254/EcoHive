@@ -34,6 +34,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li><a href="https://react.dev/" className="hover:underline transition" target='_blank' rel='noreferrer'>React JS</a></li>
                 <li><a href="https://tailwindcss.com/" className="hover:underline transition" target='_blank' rel='noreferrer'>Tailwind CSS</a></li>
+                <li><a href="https://firebase.google.com/docs" className="hover:underline transition" target='_blank' rel='noreferrer'>Firebase</a></li>
               </ul>
             </div>
             <div>

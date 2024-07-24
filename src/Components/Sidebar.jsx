@@ -95,16 +95,6 @@ export const Sidebar = ({ entity, setSelectedComponent }) => {
             </button>
           )}
         </div>
-        <div
-          className={`flex text-base ${getTextClass("orders")} items-center`}
-        >
-          <IoPersonOutline size={20} />
-          {!isCollapsed && (
-            <button className="ml-2" onClick={() => handleSelection("orders")}>
-              Order History
-            </button>
-          )}
-        </div>
         <div className={`flex flex-col text-base ${getTextClass("services")} items-start relative`}>
           <div className="flex items-center w-full">
             <MdHomeRepairService size={20} />
