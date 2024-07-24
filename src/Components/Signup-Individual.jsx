@@ -215,9 +215,9 @@ const SignupForm = ({ toggleForm }) => {
   const password = watch('password');
 
   return (
-    <div className="max-w-md w-full mx-auto p-4 md:p-8 shadow-input bg-white dark:bg-white overflow-x-hidden">
+    <div className="max-w-md w-full h-full mx-auto p-4 md:p-8 shadow-input bg-white dark:bg-white overflow-x-hidden">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">Welcome to EcoHive</h2>
-      <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
+      <form className="my-7" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="name">Name</Label>
